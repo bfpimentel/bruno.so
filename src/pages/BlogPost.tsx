@@ -114,7 +114,7 @@ export default function BlogPost() {
         </article>
 
         {(prev || next) && (
-          <div className="mt-16 w-full max-w-3xl border-t border-zinc-200 pt-8 dark:border-zinc-800">
+          <div className="mt-16 w-full pt-4 dark:border-zinc-800">
             <div className="flex justify-between">
               {prev ? (
                 <Link

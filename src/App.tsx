@@ -11,7 +11,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider defaultTheme="dark" storageKey="bruno-so-theme">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route index path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
