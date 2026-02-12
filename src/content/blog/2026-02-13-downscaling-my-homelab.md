@@ -4,7 +4,7 @@ date: 2026-02-13
 description: What's truly important to you?
 ---
 
-I've been experimenting with a homelab for a good time. I spent the last four to five years refining my setup and I came to a conclusion that not a bunch of people in this space realize: I didn't most of the services I was running.
+I've been experimenting with a homelab for a good time. I spent the last four to five years refining my setup and I came to a conclusion that not a bunch of people in this space realize: I didn't use most of the services I was running.
 
 ## My path to a homelab
 

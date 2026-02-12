@@ -18,7 +18,7 @@ export default function BlogPost() {
         <div className="flex-col h-full bg-white dark:bg-zinc-950 content-center">
           <p>Post not found.</p>
           <Link
-            to="/blog#"
+            to="/blog"
             className="text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
           >
             ← Back to Blog
@@ -33,13 +33,13 @@ export default function BlogPost() {
       <SEO
         title={post.title}
         description={post.description}
-        url={`https://bruno.so/#/blog/${post.slug}`}
+        url={`https://bruno.so/blog/${post.slug}`}
       />
       <Logo />
-      <main className="flex grow w-full max-w-4xl flex-col items-center p-8 bg-white dark:bg-zinc-950">
+      <main className="flex grow w-full max-w-4xl flex-col items-center p-6 bg-white dark:bg-zinc-950">
         <div className="w-full flex justify-between items-center mb-12">
           <Link
-            to="/blog#"
+            to="/blog"
             className="text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
           >
             ← Back to Blog
@@ -48,13 +48,11 @@ export default function BlogPost() {
 
         <article className="w-full">
           <div className="mb-12 text-center">
-            <h1 className="mb-4 text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl">
-              {post.title}
-            </h1>
+            <h1 className="mb-4 text-3xl font-bold text-zinc-900 dark:text-white">{post.title}</h1>
             <time className="text-sm font-bold text-zinc-500 dark:text-zinc-500">{post.date}</time>
           </div>
 
-          <div className="markdown-content text-base leading-relaxed text-zinc-700 dark:text-zinc-300 sm:text-lg">
+          <div className="markdown-content text-base leading-relaxed text-zinc-700 dark:text-zinc-300 sm:text-md">
             <Markdown
               components={{
                 h1: ({ ...props }) => (
@@ -118,7 +116,7 @@ export default function BlogPost() {
             <div className="flex justify-between">
               {prev ? (
                 <Link
-                  to={`/blog/${prev.slug}#`}
+                  to={`/blog/${prev.slug}`}
                   className="flex flex-col items-start text-sm hover:underline"
                 >
                   <span className="mb-1 text-zinc-500 dark:text-zinc-500">← Previous</span>
@@ -129,7 +127,7 @@ export default function BlogPost() {
               )}
               {next ? (
                 <Link
-                  to={`/blog/${next.slug}#`}
+                  to={`/blog/${next.slug}`}
                   className="flex flex-col items-end text-sm hover:underline"
                 >
                   <span className="mb-1 text-zinc-500 dark:text-zinc-500">Next →</span>

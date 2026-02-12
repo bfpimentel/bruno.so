@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function Logo() {
   return (
     <div className="flex w-full justify-center pt-8">
-      <Link to="/#" className="transition-opacity hover:opacity-80">
+      <Link to="/" className="transition-opacity hover:opacity-80">
         <svg
           width="48"
           height="48"
