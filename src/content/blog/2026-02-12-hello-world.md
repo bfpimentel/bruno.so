@@ -10,7 +10,7 @@ I'm Bruno, at the time that I'm writing this I'm 27, a husband, a dad of one boy
 
 Here I'll share my random thoughts.
 
-This isn't a place just for tech-related content, but probably mostly focused on tech,
+This isn't a place **just** for tech-related content, but tech will probably be the focus.
 
 It's all experimental and I'm excited to see what ideas might pop here.
 

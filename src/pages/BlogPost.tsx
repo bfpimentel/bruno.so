@@ -43,17 +43,26 @@ export default function BlogPost() {
             <time className="text-sm font-bold text-zinc-500 dark:text-zinc-500">{post.date}</time>
           </div>
 
-          <div className="markdown-content text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-950 grow">
+          <div className="markdown-content text-base leading-relaxed text-zinc-700 dark:text-zinc-300 sm:text-lg">
             <Markdown
               components={{
                 h1: ({ ...props }) => (
-                  <h1 className="mb-4 mt-8 text-2xl font-bold text-zinc-900 dark:text-white" {...props} />
+                  <h1
+                    className="mb-4 mt-8 text-2xl font-bold text-zinc-900 dark:text-white sm:text-3xl"
+                    {...props}
+                  />
                 ),
                 h2: ({ ...props }) => (
-                  <h2 className="mb-4 mt-8 text-xl font-bold text-zinc-900 dark:text-white" {...props} />
+                  <h2
+                    className="mb-4 mt-8 text-xl font-bold text-zinc-900 dark:text-white sm:text-2xl"
+                    {...props}
+                  />
                 ),
                 h3: ({ ...props }) => (
-                  <h3 className="mb-3 mt-6 text-lg font-bold text-zinc-900 dark:text-white" {...props} />
+                  <h3
+                    className="mb-3 mt-6 text-lg font-bold text-zinc-900 dark:text-white sm:text-xl"
+                    {...props}
+                  />
                 ),
                 p: ({ ...props }) => <p className="mb-4" {...props} />,
                 ul: ({ ...props }) => <ul className="mb-4 list-disc pl-5" {...props} />,
