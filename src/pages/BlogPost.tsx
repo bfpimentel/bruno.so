@@ -15,7 +15,7 @@ export default function BlogPost() {
         <div className="flex-col h-full bg-white dark:bg-zinc-950 content-center">
           <p>Post not found.</p>
           <Link
-            to="/blog"
+            to="/blog#"
             className="text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
           >
             ← Back to Blog
@@ -30,7 +30,7 @@ export default function BlogPost() {
       <main className="flex grow w-full max-w-4xl flex-col items-center p-6 sm:p-8 bg-white dark:bg-zinc-950">
         <div className="w-full flex justify-between items-center mb-12">
           <Link
-            to="/blog"
+            to="/blog#"
             className="text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
           >
             ← Back to Blog
@@ -47,22 +47,13 @@ export default function BlogPost() {
             <Markdown
               components={{
                 h1: ({ ...props }) => (
-                  <h1
-                    className="mb-4 mt-8 text-2xl font-bold text-zinc-900 dark:text-white sm:text-3xl"
-                    {...props}
-                  />
+                  <h1 className="mb-4 mt-8 text-2xl font-bold text-zinc-900 dark:text-white sm:text-3xl" {...props} />
                 ),
                 h2: ({ ...props }) => (
-                  <h2
-                    className="mb-4 mt-8 text-xl font-bold text-zinc-900 dark:text-white sm:text-2xl"
-                    {...props}
-                  />
+                  <h2 className="mb-4 mt-8 text-xl font-bold text-zinc-900 dark:text-white sm:text-2xl" {...props} />
                 ),
                 h3: ({ ...props }) => (
-                  <h3
-                    className="mb-3 mt-6 text-lg font-bold text-zinc-900 dark:text-white sm:text-xl"
-                    {...props}
-                  />
+                  <h3 className="mb-3 mt-6 text-lg font-bold text-zinc-900 dark:text-white sm:text-xl" {...props} />
                 ),
                 p: ({ ...props }) => <p className="mb-4" {...props} />,
                 ul: ({ ...props }) => <ul className="mb-4 list-disc pl-5" {...props} />,
@@ -104,7 +95,7 @@ export default function BlogPost() {
           <div className="mt-16 w-full max-w-3xl border-t border-zinc-200 pt-8 dark:border-zinc-800">
             <div className="flex justify-between">
               {prev ? (
-                <Link to={`/blog/${prev.slug}`} className="flex flex-col items-start text-sm hover:underline">
+                <Link to={`/blog/${prev.slug}#`} className="flex flex-col items-start text-sm hover:underline">
                   <span className="mb-1 text-zinc-500 dark:text-zinc-500">← Previous</span>
                   <span className="font-bold text-zinc-900 dark:text-zinc-100">{prev.title}</span>
                 </Link>
@@ -112,7 +103,7 @@ export default function BlogPost() {
                 <div />
               )}
               {next ? (
-                <Link to={`/blog/${next.slug}`} className="flex flex-col items-end text-sm hover:underline">
+                <Link to={`/blog/${next.slug}#`} className="flex flex-col items-end text-sm hover:underline">
                   <span className="mb-1 text-zinc-500 dark:text-zinc-500">Next →</span>
                   <span className="font-bold text-zinc-900 dark:text-zinc-100">{next.title}</span>
                 </Link>

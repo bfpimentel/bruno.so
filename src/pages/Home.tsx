@@ -47,7 +47,7 @@ export default function Home() {
         <Header name={profile.name} photoUrl={profile.photoUrl} bio={profile.bio} role={profile.role} />
         <div className="mb-6 mt-8 flex w-full justify-center">
           <Link
-            to="/blog"
+            to="/blog#"
             className="text-lg font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 hover:underline dark:text-zinc-400 dark:hover:text-white"
           >
             Read my Blog →

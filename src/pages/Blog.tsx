@@ -11,7 +11,7 @@ export default function Blog() {
       <main className="flex grow w-full max-w-4xl flex-col items-center p-6 sm:p-8">
         <div className="w-full flex h-max justify-between items-center mb-12">
           <Link
-            to="/"
+            to="/#"
             className="text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
           >
             ← Home
@@ -24,7 +24,7 @@ export default function Blog() {
             {posts.map((post) => (
               <Link
                 key={post.slug}
-                to={`/blog/${post.slug}`}
+                to={`/blog/${post.slug}#`}
                 className="group flex flex-col border-b border-zinc-200 pb-8 last:border-0 dark:border-zinc-800"
               >
                 <div className="flex items-baseline justify-between">
