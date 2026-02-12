@@ -58,7 +58,7 @@ export default function BlogPost() {
                 p: ({ ...props }) => <p className="mb-4" {...props} />,
                 ul: ({ ...props }) => <ul className="mb-4 list-disc pl-5" {...props} />,
                 ol: ({ ...props }) => <ol className="mb-4 list-decimal pl-5" {...props} />,
-                li: ({ ...props }) => <li className="mb-1" {...props} />,
+                li: ({ ...props }) => <li className="mb-1 ml-5" {...props} />,
                 a: ({ ...props }) => <a className="text-blue-600 hover:underline dark:text-blue-400" {...props} />,
                 blockquote: ({ ...props }) => (
                   <blockquote
