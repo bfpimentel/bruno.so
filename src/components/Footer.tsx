@@ -9,7 +9,7 @@ export default function Footer() {
   }
 
   return (
-    <div className="flex w-full justify-center bg-white p-6 sm:p-8 dark:bg-zinc-950">
+    <div className="mt-auto flex w-full justify-center bg-white p-6 sm:p-8 dark:bg-zinc-950">
       <footer className="flex w-full max-w-4xl flex-col items-center justify-between gap-6 border-t border-zinc-200 pt-8 dark:border-zinc-800 md:flex-row md:items-start md:pt-12">
         <div className="flex gap-4">
           <SocialButton imgSrc="linkedin.svg" link="https://linkedin.com/in/bfpimentel/" />
