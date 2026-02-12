@@ -1,5 +1,4 @@
 import type ProfileModel from "@/data/model/ProfileModel"
-import type ShortenedURLModel from "@/data/model/ShortenedURLModel"
 
 const GET_PROFILE_URL = "https://api.github.com/users/bfpimentel"
 
@@ -38,20 +37,4 @@ export async function getGithubProfile(): Promise<ProfileModel> {
       })),
     }
   })
-}
-
-export async function getShortenedURLs(): Promise<ShortenedURLModel[]> {
-  return []
-
-  // const data = await dataSource.getShortenedURLsGist()
-  // const shortenedURLs = JSON.parse(data.user.gist.files[0].text)
-  //
-  // return shortenedURLs.map((file: { short: string; url: string }) => {
-  //   const shortenedURL: ShortenedURLModel = {
-  //     short: file.short,
-  //     url: file.url,
-  //   }
-  //
-  //   return shortenedURL
-  // })
 }

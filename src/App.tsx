@@ -1,15 +1,13 @@
 import { Route, Routes } from "react-router-dom"
 
 import { ThemeProvider } from "@/components/ThemeProvider"
-import Portfolio from "@/pages/Portfolio"
-import Shortener from "@/pages/Shortener"
+import Home from "@/pages/Home"
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="pimentel-dev-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="bruno-so-theme">
       <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="/short/:id" element={<Shortener />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </ThemeProvider>
   )

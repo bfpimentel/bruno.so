@@ -6,24 +6,26 @@ type ProjectsProps = {
 
 export default function Projects({ projects }: ProjectsProps) {
   return (
-    <div className="border-t content-center items-center max-w-4xl border-black border-opacity-10 dark:border-white dark:border-opacity-10">
-      <p className="text-center text-2xl m-5">Favorite Projects</p>
+    <div className="w-full max-w-4xl">
+      <h2 className="mb-10 text-center text-xl font-bold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">
+        / Projects
+      </h2>
 
-      <div className="grid md:grid-cols-2 sm:grid-cols-1 items-stretch content-center flex-wrap h-auto max-w-4xl">
+      <div className="grid gap-4 sm:grid-cols-2">
         {projects.map((project) => (
           <a
             key={project.name}
             href={project.link}
-            className="
-              mt-0 ml-4 mb-4 mr-4 text-left border-solid border rounded-lg 
-              border-black border-opacity-10 dark:border-white dark:border-opacity-10 dark:text-white
-              transition-colors duration-500 ease-in-out 
-              hover:border-blue-500 hover:text-blue-600 dark:hover:border-blue-500 dark:hover:text-blue-600
-              focus:border-blue-500 focus:text-blue-600 dark:focus:border-blue-500 dark:focus:text-blue-600
-              "
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col border border-zinc-200 bg-white p-6 transition-all duration-200 hover:border-zinc-900 hover:bg-zinc-50 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-white dark:hover:bg-zinc-900 dark:hover:shadow-[4px_4px_0px_0px_white]"
           >
-            <h3 className="ml-4 mt-4 mr-4 mb-0 font-bold text-2xl">{project.name}</h3>
-            <p className="m-4 text-xl">{project.description}</p>
+            <h3 className="mb-3 text-lg font-bold text-zinc-900 group-hover:text-black dark:text-zinc-100 dark:group-hover:text-white">
+              {project.name}
+            </h3>
+            <p className="text-sm leading-relaxed text-zinc-600 group-hover:text-zinc-800 dark:text-zinc-400 dark:group-hover:text-zinc-300">
+              {project.description}
+            </p>
           </a>
         ))}
       </div>

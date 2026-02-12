@@ -9,18 +9,20 @@ export default function Footer() {
   }
 
   return (
-    <footer className="sticky top-[100vh] flex justify-between max-w-4xl w-full h-full border-t p-5 border-black border-opacity-10 dark:border-white dark:border-opacity-10">
-      <div className="pt-1">
-        <SocialButton imgSrc="linkedin.svg" link="https://linkedin.com/in/bfpimentel/" />
-        <SocialButton imgSrc="github.svg" link="https://github.com/bfpimentel/" />
-      </div>
+    <div className="flex w-full justify-center bg-white p-6 sm:p-8 dark:bg-zinc-950">
+      <footer className="flex w-full max-w-4xl flex-col items-center justify-between gap-6 border-t border-zinc-200 pt-8 dark:border-zinc-800 md:flex-row md:items-start md:pt-12">
+        <div className="flex gap-4">
+          <SocialButton imgSrc="linkedin.svg" link="https://linkedin.com/in/bfpimentel/" />
+          <SocialButton imgSrc="github.svg" link="https://github.com/bfpimentel/" />
+        </div>
 
-      <button
-        onClick={switchTheme}
-        className="p-2 rounded-md font-bold bg-black text-white dark:bg-white dark:text-black"
-      >
-        Show me the {theme === "light" ? "Dark" : "Light"}
-      </button>
-    </footer>
+        <button
+          onClick={switchTheme}
+          className="flex items-center gap-2 border border-zinc-300 bg-zinc-100 px-4 py-2 text-sm font-medium uppercase tracking-wider text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+        >
+          Theme: {theme}
+        </button>
+      </footer>
+    </div>
   )
 }
