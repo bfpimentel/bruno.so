@@ -1,4 +1,4 @@
-import path from "path"
+import path from "node:path"
 import { defineConfig } from "vite"
 
 import tailwindcss from "@tailwindcss/vite"
@@ -15,6 +15,10 @@ export default defineConfig(() => {
           replacement: path.resolve(__dirname, "./src"),
         },
       ],
+    },
+    build: {
+      ssr: false,
+      outDir: "dist",
     },
   }
 })

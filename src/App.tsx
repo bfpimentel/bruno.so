@@ -6,9 +6,9 @@ import Blog from "@/pages/Blog"
 import BlogPost from "@/pages/BlogPost"
 import Home from "@/pages/Home"
 
-function App() {
+function App({ helmetContext }: { helmetContext?: any }) {
   return (
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <ThemeProvider defaultTheme="dark" storageKey="bruno-so-theme">
         <Routes>
           <Route index path="/" element={<Home />} />

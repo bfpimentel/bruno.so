@@ -1,5 +1,5 @@
-import { createRoot } from "react-dom/client"
-import { HashRouter } from "react-router-dom"
+import { createRoot, hydrateRoot } from "react-dom/client"
+import { BrowserRouter, HashRouter } from "react-router-dom"
 
 import App from "@/App.tsx"
 
@@ -10,9 +10,19 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to")
 }
 
-const root = createRoot(rootElement)
-root.render(
-  <HashRouter>
-    <App />
-  </HashRouter>
-)
+const Router = import.meta.env.SSR ? BrowserRouter : HashRouter
+
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(
+    rootElement,
+    <Router>
+      <App />
+    </Router>
+  )
+} else {
+  createRoot(rootElement).render(
+    <Router>
+      <App />
+    </Router>
+  )
+}

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 9000",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && bun prerender.ts && cp dist/index.html dist/404.html && rm -rf dist/server",
     "lint": "eslint .",
     "preview": "vite preview --port 9001"
   },
@@ -28,6 +28,7 @@
     "@types/node": "^24.10.13",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
