@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 import Footer from "@/components/Footer"
+import Logo from "@/components/Logo"
 import SEO from "@/components/SEO"
 import { getPosts } from "@/lib/blog"
 
@@ -10,6 +11,7 @@ export default function Blog() {
   return (
     <div className="flex min-h-screen flex-col items-center bg-white font-mono text-zinc-900 selection:bg-zinc-900 selection:text-white dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
       <SEO title="Blog" description="Bruno Pimentel's Blog" url="https://bruno.so/#/blog" />
+      <Logo />
       <main className="flex grow w-full max-w-4xl flex-col items-center p-6 sm:p-8">
         <div className="w-full flex h-max justify-between items-center mb-12">
           <Link

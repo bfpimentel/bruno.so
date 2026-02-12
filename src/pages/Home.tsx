@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import Logo from "@/components/Logo"
 import Projects from "@/components/Projects"
 import SEO from "@/components/SEO"
 import type ProfileModel from "@/data/model/ProfileModel"
@@ -45,6 +46,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center bg-white font-mono text-zinc-900 selection:bg-zinc-900 selection:text-white dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
       <SEO title={profile.name} description={profile.bio} />
+      <Logo />
       <main className="flex grow w-full max-w-4xl flex-col items-center p-6 sm:p-8">
         <Header
           name={profile.name}

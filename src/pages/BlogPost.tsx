@@ -2,6 +2,7 @@ import Markdown from "react-markdown"
 import { Link, useParams } from "react-router-dom"
 
 import Footer from "@/components/Footer"
+import Logo from "@/components/Logo"
 import SEO from "@/components/SEO"
 import { getAdjacentPosts, getPost } from "@/lib/blog"
 
@@ -34,7 +35,8 @@ export default function BlogPost() {
         description={post.description}
         url={`https://bruno.so/#/blog/${post.slug}`}
       />
-      <main className="flex grow w-full max-w-4xl flex-col items-center p-6 sm:p-8 bg-white dark:bg-zinc-950">
+      <Logo />
+      <main className="flex grow w-full max-w-4xl flex-col items-center p-8 bg-white dark:bg-zinc-950">
         <div className="w-full flex justify-between items-center mb-12">
           <Link
             to="/blog#"
@@ -44,7 +46,7 @@ export default function BlogPost() {
           </Link>
         </div>
 
-        <article className="w-full max-w-3xl">
+        <article className="w-full">
           <div className="mb-12 text-center">
             <h1 className="mb-4 text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl">
               {post.title}
