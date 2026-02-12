@@ -47,6 +47,7 @@ Eventually I moved to a new place, a place that was actually mine. Any guess on 
 At least for Home Assistant I didn't buy anything new. I just reused a Raspberry Pi that I already had.
 
 To sum up, I had:
+
 1. Old Desktop as the main server (NixOS)
 2. NAS
 3. Raspberry Pi for HA

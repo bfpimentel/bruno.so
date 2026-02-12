@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom"
 
 import Footer from "@/components/Footer"
+import SEO from "@/components/SEO"
 import { getPosts } from "@/lib/blog"
 
 export default function Blog() {
   const posts = getPosts()
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-white font-mono text-zinc-900 selection:bg-zinc-950 selection:text-white dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+    <div className="flex min-h-screen flex-col items-center bg-white font-mono text-zinc-900 selection:bg-zinc-900 selection:text-white dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+      <SEO title="Blog" description="Bruno Pimentel's Blog" url="https://bruno.so/#/blog" />
       <main className="flex grow w-full max-w-4xl flex-col items-center p-6 sm:p-8">
         <div className="w-full flex h-max justify-between items-center mb-12">
           <Link
@@ -31,7 +33,9 @@ export default function Blog() {
                   <h3 className="mb-2 text-2xl font-bold text-zinc-900 transition-colors group-hover:text-black dark:text-zinc-100 dark:group-hover:text-white">
                     {post.title}
                   </h3>
-                  <span className="text-sm font-bold text-zinc-500 dark:text-zinc-500">{post.date}</span>
+                  <span className="text-sm font-bold text-zinc-500 dark:text-zinc-500">
+                    {post.date}
+                  </span>
                 </div>
                 <p className="text-lg leading-relaxed text-zinc-600 transition-colors group-hover:text-zinc-800 dark:text-zinc-400 dark:group-hover:text-zinc-300">
                   {post.description}

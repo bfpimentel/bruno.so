@@ -7,7 +7,7 @@ const config = {
   trailingComma: "es5",
   tabWidth: 2,
   semi: false,
-  printWidth: 120,
+  printWidth: 100,
   singleQuote: false,
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
