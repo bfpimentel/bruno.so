@@ -11,34 +11,39 @@ import { render } from "./dist/server/entry-server.js"
 const __dirname = path.resolve()
 const template = await fs.readFile(path.resolve(__dirname, "dist/index.html"), "utf-8")
 
-const routes = ["/", "/blog"]
-
 const contentDir = path.resolve(__dirname, "src/content/blog")
 const files = await fs.readdir(contentDir)
+
+const regularFontData = await fs.readFile(
+  path.resolve(__dirname, "public/fonts/VictorMono/VictorMono-Regular.ttf")
+)
+const boldFontData = await fs.readFile(
+  path.resolve(__dirname, "public/fonts/VictorMono/VictorMono-Bold.ttf")
+)
+
+const logoData = await fs.readFile(path.resolve(__dirname, "public/bfmp.svg"))
+const logoBase64 = `data:image/svg+xml;base64,${logoData.toString("base64")}`
+
 const blogRoutes = files
   .filter((file) => file.endsWith(".md"))
   .map((file) => `/blog/${file.replace(".md", "")}`)
 
+const routes = ["/", "/blog"]
 const allRoutes = [...routes, ...blogRoutes]
-
-const fontData = await fs.readFile(
-  path.resolve(__dirname, "public/fonts/VictorMono/VictorMono-Bold.ttf")
-)
-const fontRegularData = await fs.readFile(
-  path.resolve(__dirname, "public/fonts/VictorMono/VictorMono-Regular.ttf")
-)
-const logoData = await fs.readFile(path.resolve(__dirname, "public/bfmp.svg"))
-const logoBase64 = `data:image/svg+xml;base64,${logoData.toString("base64")}`
 
 for (const url of allRoutes) {
   const helmetContext: any = {}
-  const appHtml = render(url, helmetContext)
+
+  const appHtml = await render(url, helmetContext)
   const { helmet } = helmetContext
 
-  const title = helmet.title.toString().replace(/<[^>]*>/g, "") || "Bruno Pimentel"
-  const description = he.decode(
-    helmet.meta.toString().match(/name="description" content="([^"]*)"/)?.[1] || "Software Engineer"
-  )
+  const title = helmet?.title?.toString().replace(/<[^>]*>/g, "") || "Bruno Pimentel"
+  const description = helmet?.meta
+    ? he.decode(
+        helmet.meta.toString().match(/name="description" content="([^"]*)"/)?.[1] ||
+          "Software Engineer"
+      )
+    : "Software Engineer"
 
   const svg = await satori(
     <div
@@ -63,7 +68,7 @@ for (const url of allRoutes) {
         style={{
           marginLeft: "-28px",
           marginBottom: "60px",
-          filter: "invert(1)", // Invert to white
+          filter: "invert(1)",
         }}
       />
       <div
@@ -107,13 +112,13 @@ for (const url of allRoutes) {
       fonts: [
         {
           name: "Victor Mono",
-          data: fontData,
+          data: boldFontData,
           weight: 700,
           style: "normal",
         },
         {
           name: "Victor Mono Regular",
-          data: fontRegularData,
+          data: regularFontData,
           weight: 400,
           style: "normal",
         },
@@ -129,16 +134,17 @@ for (const url of allRoutes) {
     url === "/" ? "og-home.png" : `og-${url.replace(/\//g, "-").replace(/^-|-$/g, "")}.png`
   const ogImagePath = `dist/${ogImageName}`
   await fs.writeFile(ogImagePath, pngBuffer)
+
   console.log(`Generated OG Image: ${ogImagePath}`)
 
   const deployedUrl = "https://bruno.so"
   const ogImageUrl = `${deployedUrl}/${ogImageName}`
 
   const headTags = `
-      ${helmet.title.toString()}
-      ${helmet.meta.toString()}
-      ${helmet.link.toString()}
-      ${helmet.script.toString()}
+      ${helmet?.title?.toString() || ""}
+      ${helmet?.meta?.toString() || ""}
+      ${helmet?.link?.toString() || ""}
+      ${helmet?.script?.toString() || ""}
       <meta property="og:image" content="${ogImageUrl}" />
       <meta property="twitter:image" content="${ogImageUrl}" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -152,5 +158,6 @@ for (const url of allRoutes) {
   const dir = path.dirname(filePath)
   await fs.mkdir(dir, { recursive: true })
   await fs.writeFile(filePath, html)
+
   console.log(`Pre-rendered: ${filePath}`)
 }

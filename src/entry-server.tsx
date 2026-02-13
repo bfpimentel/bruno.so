@@ -4,7 +4,7 @@ import { StaticRouter } from "react-router-dom"
 
 import App from "./App"
 
-export function render(url: string, helmetContext: any) {
+export async function render(url: string, helmetContext: any) {
   return renderToString(
     <StrictMode>
       <StaticRouter location={url}>
