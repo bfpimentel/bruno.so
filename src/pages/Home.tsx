@@ -10,7 +10,7 @@ const profile = {
   name: "Bruno Pimentel",
   photoUrl: "https://avatars.githubusercontent.com/u/40500313?v=4",
   bio: "Generalist. I adapt to anything.",
-  role: "Senior Software Engineer @ Squibler.io",
+  role: "Senior Software Engineer",
   projects: [
     {
       name: "dotfiles",
