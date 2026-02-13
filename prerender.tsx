@@ -146,6 +146,8 @@ for (const url of allRoutes) {
       ${helmet?.link?.toString() || ""}
       ${helmet?.script?.toString() || ""}
       <meta property="og:image" content="${ogImageUrl}" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="twitter:image" content="${ogImageUrl}" />
       <meta name="twitter:card" content="summary_large_image" />
     `
