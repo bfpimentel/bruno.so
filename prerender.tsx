@@ -145,6 +145,9 @@ for (const url of allRoutes) {
       ${helmet?.meta?.toString() || ""}
       ${helmet?.link?.toString() || ""}
       ${helmet?.script?.toString() || ""}
+
+      <link rel="alternate" type="application/rss+xml" title="RSS Feed for bruno.so" href="https://bruno.so/rss.xml" />
+
       <meta property="og:image" content="${ogImageUrl}" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />

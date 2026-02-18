@@ -14,6 +14,7 @@ export default function Footer() {
         <div className="flex gap-4">
           <SocialButton icon="/linkedin.svg" link="https://linkedin.com/in/bfpimentel/" />
           <SocialButton icon="/github.svg" link="https://github.com/bfpimentel/" />
+          <SocialButton icon="/rss.svg" link="/rss.xml" />
         </div>
 
         <button
