@@ -1,13 +1,13 @@
 {
   "name": "bruno.so",
-  "homepage": "https://bruno.so",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "homepage": "https://bruno.so",
   "type": "module",
   "scripts": {
     "dev": "vite --port 9000",
     "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && bun prerender.tsx && bun generate_rss.ts && cp dist/index.html dist/404.html && rm -rf dist/server",
-    "lint": "eslint .",
+    "lint": "oxlint .",
     "preview": "vite preview --port 9001"
   },
   "dependencies": {
@@ -29,22 +29,15 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^24.10.13",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.7.0",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.26",
     "globals": "^16.5.0",
-    "prettier": "^3.8.1",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.55.0",
     "vite": "^7.3.1"
   }
 }
