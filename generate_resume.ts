@@ -1,33 +1,33 @@
-import { readFileSync, writeFileSync, mkdtempSync, rmSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
-import { tmpdir } from "node:os";
-import { compile } from "typst";
+import { readFileSync, writeFileSync, mkdtempSync, rmSync } from "node:fs"
+import { fileURLToPath } from "node:url"
+import { dirname, join } from "node:path"
+import { tmpdir } from "node:os"
+import { compile } from "typst"
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 interface Experience {
-  company: string;
-  title: string;
-  type: string;
-  startDate: string;
-  endDate: string;
-  location: string;
-  description: string[];
+  company: string
+  title: string
+  type: string
+  startDate: string
+  endDate: string
+  location: string
+  description: string[]
 }
 
 interface ResumeData {
   profile: {
-    name: string;
-    location: string;
-    email: string;
-    website: string;
-    github: string;
-    linkedin: string;
-  };
-  about: string;
-  experiences: Experience[];
+    name: string
+    location: string
+    email: string
+    website: string
+    github: string
+    linkedin: string
+  }
+  about: string
+  experiences: Experience[]
 }
 
 function escapeTypst(str: string): string {
@@ -39,23 +39,17 @@ function escapeTypst(str: string): string {
     .replace(/_/g, "\\_")
     .replace(/\[/g, "\\[")
     .replace(/\]/g, "\\]")
-    .replace(/@/g, "\\@");
+    .replace(/@/g, "\\@")
 }
 
 function generateTypstContent(data: ResumeData): string {
-  const aboutParagraphs = data.about
-    .split("\n\n")
-    .map((p) => escapeTypst(p.trim()));
+  const aboutParagraphs = data.about.split("\n\n").map((p) => escapeTypst(p.trim()))
 
-  let experiencesContent = "";
+  let experiencesContent = ""
   for (const exp of data.experiences) {
-    const descriptionItems = exp.description
-      .map((d) => `    - ${escapeTypst(d)}`)
-      .join("\n");
+    const descriptionItems = exp.description.map((d) => `    - ${escapeTypst(d)}`).join("\n")
     const dateRange =
-      exp.endDate === "Present"
-        ? `${exp.startDate} - Present`
-        : `${exp.startDate} - ${exp.endDate}`;
+      exp.endDate === "Present" ? `${exp.startDate} - Present` : `${exp.startDate} - ${exp.endDate}`
 
     experiencesContent += `
 #exp(
@@ -66,12 +60,12 @@ function generateTypstContent(data: ResumeData): string {
   [
 ${descriptionItems}
   ]
-)`;
+)`
   }
 
-  const aboutSection = aboutParagraphs.map((p) => `  ${p}\n\n`).join("");
+  const aboutSection = aboutParagraphs.map((p) => `  ${p}\n\n`).join("")
 
-  const photoPath = "bruno.jpeg";
+  const photoPath = "bruno.jpeg"
 
   return `
 #set page(
@@ -151,37 +145,37 @@ ${aboutSection}
 #section("Experience")
 
 ${experiencesContent}
-`;
+`
 }
 
 async function generateResume() {
-  const resumePath = join(__dirname, "public", "resume.json");
-  const data: ResumeData = JSON.parse(readFileSync(resumePath, "utf-8"));
+  const resumePath = join(__dirname, "public", "resume.json")
+  const data: ResumeData = JSON.parse(readFileSync(resumePath, "utf-8"))
 
-  const typstContent = generateTypstContent(data);
+  const typstContent = generateTypstContent(data)
 
-  const tmpDir = mkdtempSync(join(tmpdir(), "resume-"));
-  const typstFile = join(tmpDir, "resume.typ");
+  const tmpDir = mkdtempSync(join(tmpdir(), "resume-"))
+  const typstFile = join(tmpDir, "resume.typ")
 
-  const photoSrc = join(__dirname, "public", "bruno.jpeg");
-  const photoDst = join(tmpDir, "bruno.jpeg");
-  const photoContent = readFileSync(photoSrc);
+  const photoSrc = join(__dirname, "public", "bruno.jpeg")
+  const photoDst = join(tmpDir, "bruno.jpeg")
+  const photoContent = readFileSync(photoSrc)
 
-  writeFileSync(photoDst, photoContent);
-  writeFileSync(typstFile, typstContent);
+  writeFileSync(photoDst, photoContent)
+  writeFileSync(typstFile, typstContent)
 
-  const outputPath = join(__dirname, "public", "resume.pdf");
+  const outputPath = join(__dirname, "public", "resume.pdf")
   try {
-    await compile(typstFile, outputPath);
-    console.log(`✓ Resume generated: ${outputPath}`);
+    await compile(typstFile, outputPath)
+    console.log(`✓ Resume generated: ${outputPath}`)
   } catch (error) {
-    console.error("Failed to compile resume:", error);
-    process.exit(1);
+    console.error("Failed to compile resume:", error)
+    process.exit(1)
   } finally {
-    rmSync(tmpDir, { recursive: true, force: true });
+    rmSync(tmpDir, { recursive: true, force: true })
   }
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  generateResume().catch(console.error);
+  generateResume().catch(console.error)
 }
