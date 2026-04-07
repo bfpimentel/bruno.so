@@ -1,0 +1,118 @@
+{
+  "profile": {
+    "name": "Bruno Pimentel",
+    "location": "Maringá, Brazil",
+    "email": "hello@bruno.so",
+    "website": "https://bruno.so",
+    "github": "https://github.com/bfpimentel",
+    "linkedin": "https://linkedin.com/in/bfpimentel"
+  },
+  "about": "Software Engineer with over eight years of professional experience and a lifelong passion for building software. While my core expertise is in native Android (Kotlin), I have a broad background as a mobile generalist with proficiency in iOS (Swift) and cross-platform frameworks like Flutter and React Native.\n\nI am a versatile full-stack contributor, experienced in developing web frontends with React and Vite, as well as backends using Django and Java. My work ranges from building mission-critical apps and B2B SDKs to collaborating on AI-driven features like agentic text editors.\n\nI have delivered high-impact solutions for both agencies and product companies across global markets. I am skilled at translating business needs into modular, scalable architecture and am experienced in collaborating with distributed teams in EST-aligned environments.",
+  "experiences": [
+    {
+      "company": "Squibler AI",
+      "title": "Senior Software Engineer, Mobile | Full Stack",
+      "type": "Full-time",
+      "startDate": "Jan 2025",
+      "endDate": "Present",
+      "location": "United States · Remote",
+      "description": [
+        "Led mobile development using React Native, overseeing the end-to-end lifecycle and feature delivery of the application.",
+        "Contributed as a full-stack engineer, developing the web platform using React and Vite while managing backend logic with Django.",
+        "Collaborated on the development of the Agentic Text Editor, assisting in the integration of AI-driven features and editor functionality."
+      ]
+    },
+    {
+      "company": "spark.dev",
+      "title": "Senior Software Engineer, Mobile",
+      "type": "Freelance",
+      "startDate": "Apr 2023",
+      "endDate": "Present",
+      "location": "United States · Remote",
+      "description": [
+        "Developed and delivered custom multi-platform mobile solutions for a diverse range of clients and industries.",
+        "Utilized cross-platform frameworks to maximize code reusability and ensure consistent functionality across iOS and Android.",
+        "Partnered with clients to translate unique business requirements into production-ready mobile applications."
+      ]
+    },
+    {
+      "company": "Owlet Baby Care",
+      "title": "Senior Software Engineer, Android",
+      "type": "Contract",
+      "startDate": "Mar 2024",
+      "endDate": "Jan 2025",
+      "location": "United States · Remote",
+      "description": [
+        "Developed Android applications for Owlet's baby care platform, focusing on real-time infant safety monitoring and cross-functional team collaboration.",
+        "Engineered a multiplatform charting library using Kotlin Multiplatform (KMP) to visualize baby vitals across both Android and iOS.",
+        "Implemented advanced, high-performance charting features to ensure low-latency data monitoring for caregivers."
+      ]
+    },
+    {
+      "company": "League",
+      "title": "Senior Software Engineer, Android",
+      "type": "Full-time",
+      "startDate": "Nov 2021",
+      "endDate": "Nov 2023",
+      "location": "Canada · Remote",
+      "description": [
+        "Developed League's flagship mobile applications and tenant-specific solutions in collaboration with cross-functional teams.",
+        "Designed and maintained a B2B SDK to facilitate third-party integrations and extend mobile platform functionality.",
+        "Authored technical documentation for the SDK to streamline adoption for external developers and partners.",
+        "Built responsive UI components and animations using Jetpack Compose to improve user engagement and interface quality.",
+        "Implemented a testing suite encompassing unit, instrumentation, and screenshot tests to ensure reliability across devices."
+      ]
+    },
+    {
+      "company": "Cornershop by Uber",
+      "title": "Senior Software Engineer, Android",
+      "type": "Full-time",
+      "startDate": "May 2021",
+      "endDate": "Nov 2021",
+      "location": "São Paulo, Brazil · Remote",
+      "description": [
+        "Collaborated with an international team to develop the mission-critical Shoppers App for Cornershop's e-commerce platform.",
+        "Refactored legacy codebases to improve maintainability and reduce technical debt, resulting in faster development cycles.",
+        "Designed and implemented a modular architecture to increase code reusability and scalability across development teams."
+      ]
+    },
+    {
+      "company": "Pixelwolf",
+      "title": "Senior Software Engineer, Android",
+      "type": "Full-time",
+      "startDate": "Jul 2020",
+      "endDate": "Jun 2021",
+      "location": "Curitiba, Brazil · Remote",
+      "description": [
+        "Led the Android development team for a critical client project, ensuring consistent code quality and successful deployment cycles.",
+        "Mentored team members on modern testing methodologies, increasing unit test coverage for legacy products from a baseline to over 80%.",
+        "Collaborated directly with clients to gather requirements and translate business needs into technical specifications and mobile solutions."
+      ]
+    },
+    {
+      "company": "UDS Tecnologia",
+      "title": "Software Engineer, Android | DevOps",
+      "type": "Full-time",
+      "startDate": "Nov 2018",
+      "endDate": "Jul 2020",
+      "location": "Maringá, Brazil · On-site",
+      "description": [
+        "Built high-performance Android (Java/Kotlin) and iOS (Swift) applications focused on seamless user experience and platform-specific best practices.",
+        "Developed and deployed cross-platform applications using Flutter and React Native to maximize code reusability and streamline delivery.",
+        "Automated the software development lifecycle for Android by implementing and maintaining robust CI/CD pipelines for building, testing, and deployment."
+      ]
+    },
+    {
+      "company": "ACCION",
+      "title": "Software Engineer, Full Stack",
+      "type": "Full-time",
+      "startDate": "May 2018",
+      "endDate": "Nov 2018",
+      "location": "Maringá, Brazil · On-site",
+      "description": [
+        "Designed and developed a robust Android application using Java, automating key processes for clients and serving as a companion to ACCION's flagship ERP product, streamlining operations and enhancing user experience.",
+        "Engineered a high-performance web service using Java, Spring framework, Oracle SQL, and PostgreSQL, enabling seamless integration and data exchange between the Android application and backend systems, ensuring efficient and secure data management."
+      ]
+    }
+  ]
+}
