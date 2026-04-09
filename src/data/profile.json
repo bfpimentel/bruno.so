@@ -9,9 +9,9 @@
       "link": "https://github.com/bfpimentel/dotfiles"
     },
     {
-      "name": "bitwarden-mxroute",
-      "description": "Fake Addy.io Server for creating aliases inside Bitwarden using MXRoute API",
-      "link": "https://github.com/bfpimentel/bitwarden-mxroute"
+      "name": "bitwarden-alias-provider",
+      "description": "Fake Addy.io Server for creating aliases inside Bitwarden using multiple email service providers",
+      "link": "https://github.com/bfpimentel/bitwarden-alias-provider"
     },
     {
       "name": "ad-aeternum",
@@ -35,4 +35,3 @@
     }
   ]
 }
-
