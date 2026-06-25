@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -eu
+
+echo "Running pre-commit generators..."
+
+bun fetch_resume.ts
+git add public/resume.pdf
+
+echo "Pre-commit generators completed."

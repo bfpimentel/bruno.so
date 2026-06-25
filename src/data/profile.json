@@ -5,7 +5,7 @@
   "projects": [
     {
       "name": "dotfiles",
-      "description": "Personal dotfiles with automated setup using Nix and Home Manager",
+      "description": "Personal dotfiles and server orchestration using Nix and Home Manager",
       "link": "https://github.com/bfpimentel/dotfiles"
     },
     {
