@@ -9,9 +9,14 @@
       "link": "https://github.com/bfpimentel/dotfiles"
     },
     {
-      "name": "bitwarden-alias-provider",
-      "description": "Fake Addy.io Server for creating aliases inside Bitwarden using multiple email service providers",
-      "link": "https://github.com/bfpimentel/bitwarden-alias-provider"
+      "name": "halo",
+      "description": "Desktop widgets for macOS, written in TSX",
+      "link": "https://github.com/bfpimentel/halo"
+    },
+    {
+      "name": "eag",
+      "description": "Self-hosted email alias generator for Purelymail and MXRoute, with optional Bitwarden integration",
+      "link": "https://github.com/bfpimentel/eag"
     },
     {
       "name": "ad-aeternum",
@@ -25,13 +30,8 @@
     },
     {
       "name": "shady",
-      "description": "Auto docker containers dashboard and static file server",
+      "description": "Auto Docker containers dashboard and static file server",
       "link": "https://github.com/bfpimentel/shady"
-    },
-    {
-      "name": "satellite",
-      "description": "White-noise playback app made with Flutter and controlled by a Flask server",
-      "link": "https://github.com/bfpimentel/satellite"
     }
   ]
 }
