@@ -25,6 +25,15 @@ function readStoredTheme(storageKey: string): Theme {
   }
 }
 
+function storeTheme(storageKey: string, theme: Theme) {
+  try {
+    if (theme === "system") localStorage.removeItem(storageKey)
+    else localStorage.setItem(storageKey, theme)
+  } catch (error) {
+    console.warn("Could not persist theme preference", error)
+  }
+}
+
 export function ThemeProvider({ children, storageKey }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme | null>(null)
 
@@ -50,10 +59,7 @@ export function ThemeProvider({ children, storageKey }: ThemeProviderProps) {
 
   const cycleTheme = () => {
     const next = themes[(themes.indexOf(theme ?? "system") + 1) % themes.length]
-    try {
-      if (next === "system") localStorage.removeItem(storageKey)
-      else localStorage.setItem(storageKey, next)
-    } catch {}
+    storeTheme(storageKey, next)
     setTheme(next)
   }
 

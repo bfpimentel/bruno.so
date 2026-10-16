@@ -1,4 +1,4 @@
-import { HelmetProvider } from "react-helmet-async"
+import { HelmetProvider, type HelmetServerState } from "react-helmet-async"
 import { Route, Routes } from "react-router-dom"
 
 import { ThemeProvider } from "@/components/ThemeProvider"
@@ -6,7 +6,9 @@ import Blog from "@/pages/Blog"
 import BlogPost from "@/pages/BlogPost"
 import Home from "@/pages/Home"
 
-function App({ helmetContext }: { helmetContext?: any }) {
+export type HelmetContext = { helmet?: HelmetServerState }
+
+function App({ helmetContext }: { helmetContext?: HelmetContext }) {
   return (
     <HelmetProvider context={helmetContext}>
       <ThemeProvider storageKey="bruno-so-theme">
