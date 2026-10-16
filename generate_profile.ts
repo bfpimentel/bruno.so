@@ -9,7 +9,6 @@ const GET_PROFILE_URL = "https://api.github.com/users/bfpimentel"
 
 type ProfileResponse = {
   name: string
-  avatar_url: string
   bio: string
   company: string
 }
@@ -26,7 +25,6 @@ interface RepositoryResponse {
 
 interface ProfileModel {
   name: string
-  photoUrl: string
   bio: string
   projects: { name: string; description: string; link: string }[]
 }
@@ -39,7 +37,6 @@ async function getGithubProfile(): Promise<ProfileModel> {
 
     return {
       name: parsedProfile.name,
-      photoUrl: parsedProfile.avatar_url,
       bio: parsedProfile.bio,
       projects: parsedPinnedRepositories.map((repo) => ({
         name: repo.name,

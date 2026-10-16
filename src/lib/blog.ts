@@ -58,3 +58,21 @@ export function getAdjacentPosts(slug: string): { prev?: Post; next?: Post } {
 
   return { prev, next }
 }
+
+const WORDS_PER_MINUTE = 220
+
+export function getReadingTime(post: Post): number {
+  const words = post.body.split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE))
+}
+
+export function groupPostsByYear(posts: Post[]): [string, Post[]][] {
+  const groups = new Map<string, Post[]>()
+
+  for (const post of posts) {
+    const year = post.date.slice(0, 4)
+    groups.set(year, [...(groups.get(year) ?? []), post])
+  }
+
+  return [...groups.entries()]
+}

@@ -15,10 +15,10 @@ const contentDir = path.resolve(__dirname, "src/content/blog")
 const files = await fs.readdir(contentDir)
 
 const regularFontData = await fs.readFile(
-  path.resolve(__dirname, "public/fonts/VictorMono/VictorMono-Regular.ttf")
+  path.resolve(__dirname, "src/assets/fonts/iosevka-400-normal.ttf")
 )
 const boldFontData = await fs.readFile(
-  path.resolve(__dirname, "public/fonts/VictorMono/VictorMono-Bold.ttf")
+  path.resolve(__dirname, "src/assets/fonts/iosevka-700-normal.ttf")
 )
 
 const logoData = await fs.readFile(path.resolve(__dirname, "public/bfmp.svg"))
@@ -56,7 +56,7 @@ for (const url of allRoutes) {
         flexDirection: "column",
         backgroundColor: "#09090b", // zinc-950
         color: "white",
-        fontFamily: "Victor Mono",
+        fontFamily: "Iosevka",
         padding: "80px",
         textAlign: "left",
       }}
@@ -85,7 +85,7 @@ for (const url of allRoutes) {
         style={{
           fontSize: 30,
           color: "#a1a1aa", // zinc-400
-          fontFamily: "Victor Mono Regular",
+          fontFamily: "Iosevka Regular",
           marginBottom: "auto",
         }}
       >
@@ -98,7 +98,7 @@ for (const url of allRoutes) {
           width: "100%",
           fontSize: 24,
           color: "#52525b", // zinc-600
-          fontFamily: "Victor Mono Regular",
+          fontFamily: "Iosevka Regular",
           marginTop: "40px",
         }}
       >
@@ -111,13 +111,13 @@ for (const url of allRoutes) {
       height: 630,
       fonts: [
         {
-          name: "Victor Mono",
+          name: "Iosevka",
           data: boldFontData,
           weight: 700,
           style: "normal",
         },
         {
-          name: "Victor Mono Regular",
+          name: "Iosevka Regular",
           data: regularFontData,
           weight: 400,
           style: "normal",

@@ -5,12 +5,32 @@
     <link rel="icon" type="image/svg+xml" href="/bfmp.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bruno Pimentel</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/Iosevka/iosevka-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
+    <link
+      rel="preload"
+      href="/fonts/Iosevka/iosevka-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script>
+      ;(function () {
+        var stored = null
+        try {
+          stored = localStorage.getItem("bruno-so-theme")
+        } catch (e) {}
+        var dark =
+          stored === "dark" ||
+          (stored !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        document.documentElement.classList.add(dark ? "dark" : "light")
+      })()
+    </script>
     <!--head-tags-->
   </head>
 

@@ -2,32 +2,141 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@font-face {
+  font-family: "Iosevka";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Iosevka/iosevka-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("/fonts/Iosevka/iosevka-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Iosevka/iosevka-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Iosevka/iosevka-700-normal.woff2") format("woff2");
+}
+
 @theme {
   --font-mono:
-    "Victor Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Iosevka", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
 }
 
 @layer base {
-  body {
-    @apply font-mono bg-zinc-950 text-white min-h-screen selection:bg-white selection:text-zinc-950 antialiased;
+  :root {
+    color-scheme: light;
   }
 
-  :root[class~="light"] body {
-    @apply bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white;
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen bg-white font-mono text-[15px] leading-relaxed text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white;
+    @apply dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-950;
   }
 
   #root {
-    @apply min-h-screen flex flex-col w-full;
+    @apply flex min-h-screen w-full flex-col;
   }
 
-  ::-webkit-scrollbar {
-    width: 8px;
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-zinc-900 dark:outline-zinc-100;
   }
-  ::-webkit-scrollbar-track {
-    @apply bg-zinc-950;
+}
+
+@layer components {
+  .prose {
+    @apply max-w-[66ch] text-base leading-[1.75];
   }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-zinc-800 hover:bg-zinc-600;
+
+  .prose > * {
+    @apply mb-[1.1em];
+  }
+
+  .prose h2 {
+    @apply mt-[2.2em] mb-[0.7em] text-[17px] leading-snug font-bold;
+  }
+
+  .prose h2::before {
+    @apply font-normal text-zinc-500 dark:text-zinc-400;
+    content: "## ";
+  }
+
+  .prose h3 {
+    @apply mt-[1.8em] mb-[0.6em] font-bold;
+  }
+
+  .prose h3::before {
+    @apply font-normal text-zinc-500 dark:text-zinc-400;
+    content: "### ";
+  }
+
+  .prose a {
+    @apply underline decoration-zinc-400 underline-offset-[3px] hover:bg-zinc-100 hover:decoration-zinc-900 dark:decoration-zinc-500 dark:hover:bg-zinc-900 dark:hover:decoration-zinc-100;
+  }
+
+  .prose a[href^="http"]::after {
+    @apply ml-px text-[0.8em] text-zinc-500 dark:text-zinc-400;
+    content: "↗";
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply grid list-none gap-[0.35em] pl-0;
+  }
+
+  .prose li {
+    @apply grid grid-cols-[2.5ch_1fr];
+  }
+
+  .prose ul > li::before {
+    @apply text-zinc-500 dark:text-zinc-400;
+    content: "-";
+  }
+
+  .prose ol {
+    counter-reset: item;
+  }
+
+  .prose ol > li::before {
+    @apply text-zinc-500 tabular-nums dark:text-zinc-400;
+    counter-increment: item;
+    content: counter(item) ".";
+  }
+
+  .prose blockquote {
+    @apply border-l-2 border-zinc-300 pl-4 text-zinc-600 italic dark:border-zinc-700 dark:text-zinc-400;
+  }
+
+  .prose s,
+  .prose del {
+    @apply text-zinc-500 dark:text-zinc-400;
+  }
+
+  .prose :not(pre) > code {
+    @apply bg-zinc-100 px-1.5 py-px text-[0.92em] dark:bg-zinc-900;
+  }
+
+  .prose pre {
+    @apply overflow-x-auto border border-zinc-200 bg-zinc-50 p-4 text-sm leading-normal dark:border-zinc-800 dark:bg-zinc-900;
   }
 }

@@ -1,65 +1,64 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
-type Theme = "dark" | "light" | "system"
+export type Theme = "system" | "light" | "dark"
+
+const themes: Theme[] = ["system", "light", "dark"]
 
 type ThemeProviderProps = {
   children: React.ReactNode
-  defaultTheme?: Theme
-  storageKey?: string
+  storageKey: string
 }
 
 type ThemeProviderState = {
   theme: Theme
-  setTheme: (theme: Theme) => void
+  cycleTheme: () => void
 }
 
-const initialState: ThemeProviderState = {
-  theme: "system",
-  setTheme: () => null,
+const ThemeProviderContext = createContext<ThemeProviderState | undefined>(undefined)
+
+function readStoredTheme(storageKey: string): Theme {
+  try {
+    const stored = localStorage.getItem(storageKey) as Theme | null
+    return stored && themes.includes(stored) ? stored : "system"
+  } catch {
+    return "system"
+  }
 }
 
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
+export function ThemeProvider({ children, storageKey }: ThemeProviderProps) {
+  const [theme, setTheme] = useState<Theme | null>(null)
 
-export function ThemeProvider({
-  children,
-  defaultTheme = "system",
-  storageKey = "vite-ui-theme",
-  ...props
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      return (localStorage.getItem(storageKey) as Theme) || defaultTheme
-    }
-    return defaultTheme
-  })
+  useEffect(() => setTheme(readStoredTheme(storageKey)), [storageKey])
 
   useEffect(() => {
-    const root = window.document.documentElement
+    if (theme === null) return
 
-    root.classList.remove("light", "dark")
+    const media = window.matchMedia("(prefers-color-scheme: dark)")
 
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light"
-
-      root.classList.add(systemTheme)
-      return
+    const apply = () => {
+      const resolved = theme === "system" ? (media.matches ? "dark" : "light") : theme
+      document.documentElement.classList.remove("light", "dark")
+      document.documentElement.classList.add(resolved)
     }
 
-    root.classList.add(theme)
+    apply()
+
+    if (theme !== "system") return
+    media.addEventListener("change", apply)
+    return () => media.removeEventListener("change", apply)
   }, [theme])
 
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
-    },
+  const cycleTheme = () => {
+    const next = themes[(themes.indexOf(theme ?? "system") + 1) % themes.length]
+    try {
+      if (next === "system") localStorage.removeItem(storageKey)
+      else localStorage.setItem(storageKey, next)
+    } catch {}
+    setTheme(next)
   }
 
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeProviderContext.Provider value={{ theme: theme ?? "system", cycleTheme }}>
       {children}
     </ThemeProviderContext.Provider>
   )
