@@ -43,6 +43,7 @@
 @layer base {
   :root {
     color-scheme: light;
+    @apply text-[100%] md:text-[106.25%] lg:text-[112.5%];
   }
 
   :root.dark {
@@ -50,7 +51,7 @@
   }
 
   body {
-    @apply min-h-screen bg-white font-mono text-[15px] leading-relaxed text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white;
+    @apply min-h-screen bg-white font-mono text-[0.9375rem] leading-relaxed text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white;
     @apply dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-950;
   }
 
@@ -65,7 +66,7 @@
 
 @layer components {
   .prose {
-    @apply max-w-[66ch] text-base leading-[1.75];
+    @apply max-w-[76ch] text-base leading-[1.75];
   }
 
   .prose > * {
@@ -73,7 +74,7 @@
   }
 
   .prose h2 {
-    @apply mt-[2.2em] mb-[0.7em] text-[17px] leading-snug font-bold;
+    @apply mt-[2.2em] mb-[0.7em] text-[1.0625rem] leading-snug font-bold;
   }
 
   .prose h2::before {

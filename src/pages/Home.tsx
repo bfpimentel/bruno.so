@@ -21,9 +21,9 @@ export default function Home() {
     <Layout>
       <SEO title={profile.name} description={profile.bio} />
 
-      <div className="grid grid-cols-[64px_1fr] items-center gap-[18px]">
+      <div className="grid grid-cols-[auto_1fr] items-center gap-4.5">
         <img
-          className="size-16 border border-zinc-900 object-cover dark:border-zinc-100"
+          className="size-16 border lg:size-20 border-zinc-900 object-cover dark:border-zinc-100"
           fetchPriority="high"
           src="/bruno.jpeg"
           width={64}
@@ -31,12 +31,12 @@ export default function Home() {
           alt={profile.name}
         />
         <div>
-          <h1 className="text-[22px] font-bold tracking-tight">{profile.name}</h1>
+          <h1 className="text-[1.375rem] lg:text-2xl font-bold tracking-tight">{profile.name}</h1>
           <p className="mt-0.5 text-zinc-500 dark:text-zinc-400">{profile.bio}</p>
         </div>
       </div>
 
-      <nav aria-label="Links" className="flex flex-wrap gap-x-[18px] gap-y-1 text-sm">
+      <nav aria-label="Links" className="flex flex-wrap gap-x-4.5 gap-y-1 text-sm">
         <a href="/resume.pdf" className={textLink}>
           resume.pdf
         </a>

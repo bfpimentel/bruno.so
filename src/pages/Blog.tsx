@@ -12,7 +12,7 @@ export default function Blog() {
       <SEO title="Blog" description="Bruno Pimentel's Blog" url="https://bruno.so/blog" />
 
       <div>
-        <h1 className="text-[22px] font-bold">Writing</h1>
+        <h1 className="text-[1.375rem] lg:text-2xl font-bold">Writing</h1>
         <p className="mt-1 text-zinc-500 dark:text-zinc-400">
           Random thoughts, mostly about tech. Follow along via{" "}
           <a

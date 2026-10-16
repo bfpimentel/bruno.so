@@ -19,7 +19,7 @@ export default function BlogPost() {
       <Layout crumbs={[{ label: "blog", to: "/blog" }]}>
         <SEO title="Post Not Found" />
         <div>
-          <h1 className="text-[22px] font-bold">Post not found</h1>
+          <h1 className="text-[1.375rem] font-bold">Post not found</h1>
           <p className="mt-1 text-zinc-500 dark:text-zinc-400">
             It may have moved. See{" "}
             <Link to="/blog" className="underline underline-offset-[3px]">
@@ -43,7 +43,7 @@ export default function BlogPost() {
 
       <article ref={article}>
         <header className="grid gap-2.5">
-          <h1 className="text-2xl leading-tight font-bold tracking-tight text-balance sm:text-[28px]">
+          <h1 className="text-2xl leading-tight font-bold tracking-tight text-balance sm:text-[1.75rem] lg:text-[2rem]">
             {post.title}
           </h1>
           <p className="text-zinc-500 italic dark:text-zinc-400">{post.description}</p>

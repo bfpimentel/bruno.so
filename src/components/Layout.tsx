@@ -19,7 +19,7 @@ export default function Layout({ crumbs = [], children }: LayoutProps) {
   const { theme, cycleTheme } = useTheme()
 
   return (
-    <div className="mx-auto flex w-full max-w-[620px] grow flex-col gap-11 px-6 pt-10 pb-8">
+    <div className="mx-auto flex w-full max-w-2xl grow flex-col gap-11 px-6 pt-10 pb-8 lg:max-w-3xl lg:gap-14 lg:pt-16">
       <header className="flex items-center justify-between gap-4">
         <nav
           aria-label="Breadcrumb"
