@@ -66,7 +66,7 @@
 
 @layer components {
   .prose {
-    @apply max-w-[76ch] text-base leading-[1.75];
+    @apply text-base leading-[1.75];
   }
 
   .prose > * {
