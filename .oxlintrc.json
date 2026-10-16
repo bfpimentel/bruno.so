@@ -8,10 +8,6 @@
     "builtin": true
   },
   "ignorePatterns": ["dist"],
-  "rules": {
-    "prettier/prettier": "error"
-  },
-  "jsPlugins": ["eslint-plugin-prettier"],
   "overrides": [
     {
       "files": ["**/*.{ts,tsx}"],
