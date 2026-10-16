@@ -9,7 +9,7 @@ import Home from "@/pages/Home"
 function App({ helmetContext }: { helmetContext?: any }) {
   return (
     <HelmetProvider context={helmetContext}>
-      <ThemeProvider defaultTheme="dark" storageKey="bruno-so-theme">
+      <ThemeProvider storageKey="bruno-so-theme">
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />

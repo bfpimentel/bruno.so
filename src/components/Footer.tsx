@@ -1,29 +1,21 @@
-import SocialButton from "@/components/SocialButton"
-import { useTheme } from "@/components/ThemeProvider"
+import { links } from "@/data/links"
 
 export default function Footer() {
-  const { theme, setTheme } = useTheme()
-
-  const switchTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light")
-  }
-
   return (
-    <div className="mt-auto flex w-full justify-center bg-white p-6 dark:bg-zinc-950">
-      <footer className="flex w-full flex-col items-center justify-between gap-6 border-t border-zinc-200 dark:border-zinc-800 md:flex-row md:items-start pt-8">
-        <div className="flex gap-4">
-          <SocialButton icon="/linkedin.svg" link="https://linkedin.com/in/bfpimentel/" />
-          <SocialButton icon="/github.svg" link="https://github.com/bfpimentel/" />
-          <SocialButton icon="/rss.svg" link="/rss.xml" />
-        </div>
-
-        <button
-          onClick={switchTheme}
-          className="flex items-center gap-2 border border-zinc-300 bg-zinc-100 px-4 py-2 text-sm font-medium uppercase tracking-wider text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
-        >
-          Theme: {theme}
-        </button>
-      </footer>
-    </div>
+    <footer className="flex flex-wrap justify-between gap-2 border-t border-zinc-200 pt-4 text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+      <span>© {new Date().getFullYear()} Bruno Pimentel</span>
+      <nav aria-label="Elsewhere" className="flex gap-4">
+        {links.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
+            className="hover:text-zinc-900 dark:hover:text-zinc-100"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </footer>
   )
 }

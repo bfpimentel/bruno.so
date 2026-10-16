@@ -38,7 +38,7 @@ I started using an old "gaming" PC as my main server. It had an octa-core proces
 
 It was more than enough for anything I needed or wanted to run (besides some local LLMs).
 
-After that, I thought a NAS would be welcome. Well, I had everything working in place already, why did I need a NAS? <s>Because I wanted it.</s> Because I didn't want to put all the responsibility into a single device. NASes are usually more stable, if something goes wrong with updates from other applications or the Hypervisor it shouldn't be affected, a bare-metal NAS has more usability than a VM etc.
+After that, I thought a NAS would be welcome. Well, I had everything working in place already, why did I need a NAS? ~~Because I wanted it.~~ Because I didn't want to put all the responsibility into a single device. NASes are usually more stable, if something goes wrong with updates from other applications or the Hypervisor it shouldn't be affected, a bare-metal NAS has more usability than a VM etc.
 
 So, I bought a N100 Motherboard + CPU combo from AliExpress, two 4TB HDDs, 16GB of RAM, one lifetime Unraid license and then I had a NAS.
 

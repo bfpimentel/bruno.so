@@ -1,53 +1,62 @@
 import { Link } from "react-router-dom"
 
-import Footer from "@/components/Footer"
-import Logo from "@/components/Logo"
+import Layout from "@/components/Layout"
 import SEO from "@/components/SEO"
-import { getPosts } from "@/lib/blog"
+import { getPosts, groupPostsByYear } from "@/lib/blog"
 
 export default function Blog() {
-  const posts = getPosts()
+  const years = groupPostsByYear(getPosts())
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-white font-mono text-zinc-900 selection:bg-zinc-900 selection:text-white dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+    <Layout crumbs={[{ label: "blog" }]}>
       <SEO title="Blog" description="Bruno Pimentel's Blog" url="https://bruno.so/blog" />
-      <Logo />
-      <main className="flex grow w-full max-w-4xl flex-col items-centers p-6">
-        <div className="w-full flex h-max justify-between items-center mb-12">
-          <Link
-            to="/"
-            className="text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-          >
-            ← Home
-          </Link>
-        </div>
 
-        <div className="w-full flex-col grow max-w-4xl bg-white dark:bg-zinc-950">
-          <h1 className="mb-12 text-4xl font-bold text-zinc-900 dark:text-white">Blog</h1>
-          <div className="grid gap-8">
+      <div>
+        <h1 className="text-[22px] font-bold">Writing</h1>
+        <p className="mt-1 text-zinc-500 dark:text-zinc-400">
+          Random thoughts, mostly about tech. Follow along via{" "}
+          <a
+            href="/rss.xml"
+            className="border-b border-zinc-200 hover:border-zinc-900 hover:text-zinc-900 dark:border-zinc-800 dark:hover:border-zinc-100 dark:hover:text-zinc-100"
+          >
+            rss
+          </a>
+          .
+        </p>
+      </div>
+
+      {years.map(([year, posts]) => (
+        <section key={year} className="grid gap-1 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-4">
+          <h2 className="text-sm text-zinc-500 tabular-nums sm:pt-2.5 dark:text-zinc-400">
+            {year}
+          </h2>
+          <ul className="border-b border-zinc-200 dark:border-zinc-800">
             {posts.map((post) => (
-              <Link
-                key={post.slug}
-                to={`/blog/${post.slug}`}
-                className="group flex flex-col border-b border-zinc-200 pb-8 last:border-0 dark:border-zinc-800"
-              >
-                <div className="flex items-baseline justify-between">
-                  <h3 className="mb-2 text-lg font-bold text-zinc-900 transition-colors group-hover:text-black dark:text-zinc-100 dark:group-hover:text-white">
-                    {post.title}
-                  </h3>
-                  <span className="text-sm font-bold text-zinc-500 dark:text-zinc-500">
-                    {post.date}
-                  </span>
-                </div>
-                <p className="text-md leading-relaxed text-zinc-600 transition-colors group-hover:text-zinc-800 dark:text-zinc-400 dark:group-hover:text-zinc-300">
-                  {post.description}
-                </p>
-              </Link>
+              <li key={post.slug}>
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-4 border-t border-zinc-200 py-2.5 dark:border-zinc-800"
+                >
+                  <time
+                    dateTime={post.date}
+                    className="text-zinc-500 tabular-nums dark:text-zinc-400"
+                  >
+                    {post.date.slice(5)}
+                  </time>
+                  <div>
+                    <span className="font-semibold group-hover:underline group-hover:underline-offset-[3px]">
+                      {post.title}
+                    </span>
+                    <p className="mt-0.5 text-sm text-zinc-500 dark:text-zinc-400">
+                      {post.description}
+                    </p>
+                  </div>
+                </Link>
+              </li>
             ))}
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
+          </ul>
+        </section>
+      ))}
+    </Layout>
   )
 }
